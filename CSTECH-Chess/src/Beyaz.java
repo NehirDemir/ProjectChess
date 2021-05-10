@@ -10,28 +10,53 @@ public class Beyaz {
 	int beyazpiyontehditsayisi=0,beyazfiltehditsayisi=0,beyazattehditsayisi=0,beyazkaletehditsayisi=0;
 	int beyazvezirtehditsayisi=0,beyazsahtehditsayisi=0;
 	
-	 
+	 int piyon=0,at=0,kale=0,fil=0,vezir=0,sah;
 	public void skor()
 	{
-		double skor=(beyazpiyontehditsayisi*0.5)+(8-beyazpiyontehditsayisi);
-	 	skor+=(beyazfiltehditsayisi*1.5)+(2-beyazfiltehditsayisi)*3;
-	 	skor+=(beyazattehditsayisi*1.5)+(2-beyazattehditsayisi)*3;
-	 	skor+=beyazkaletehditsayisi*2.5+(2-beyazkaletehditsayisi)*5;
-	 	skor+=beyazvezirtehditsayisi*4.5+(1-beyazvezirtehditsayisi)*9;
-	 	skor+=beyazsahtehditsayisi*50+(1-beyazsahtehditsayisi)*100;
+		double skor=(beyazpiyontehditsayisi*0.5)+(piyon-beyazpiyontehditsayisi);
+	 	skor+=(beyazfiltehditsayisi*1.5)+(fil-beyazfiltehditsayisi)*3;
+	 	skor+=(beyazattehditsayisi*1.5)+(at-beyazattehditsayisi)*3;
+	 	skor+=beyazkaletehditsayisi*2.5+(kale-beyazkaletehditsayisi)*5;
+	 	skor+=beyazvezirtehditsayisi*4.5+(vezir-beyazvezirtehditsayisi)*9;
+	 	skor+=beyazsahtehditsayisi*50+(sah-beyazsahtehditsayisi)*100;
 	 	
 	    System.out.println("Beyaz: "+ skor);
 				
 	}
-	public void yazdir()
+	public void yazdir(String board[][])
 	{
-		System.out.println("tehdit edilen beyaz piyon sayýsý "+ beyazpiyontehditsayisi);
-    	System.out.println("tehdit edilen beyaz fil sayýsý "+ beyazfiltehditsayisi);
-    	System.out.println("tehdit edilen beyaz vezir sayýsý "+ beyazvezirtehditsayisi);
-    	System.out.println("tehdit edilen beyaz sah sayýsý "+ beyazsahtehditsayisi);
-    	System.out.println("tehdit edilen beyaz at sayýsý "+ beyazattehditsayisi);
-    	System.out.println("tehdit edilen beyaz kale sayýsý "+ beyazkaletehditsayisi);
-	}
+		
+		for(int i=0;i<8;i++) {
+    		for(int j=0;j<8;j++)
+    		{
+    			if(board[i][j].equalsIgnoreCase("fb"))
+    			{
+    				fil++;
+    			}
+    			if(board[i][j].equalsIgnoreCase("pb"))
+    			{
+    				piyon++;
+    			}
+    			if(board[i][j].equalsIgnoreCase("ab"))
+    			{
+    				at++;
+    			}
+    			if(board[i][j].equalsIgnoreCase("vb"))
+    			{
+    				vezir++;
+    			}
+    			if(board[i][j].equalsIgnoreCase("sb"))
+    			{
+    				sah++;
+    			}
+    			if(board[i][j].equalsIgnoreCase("kb"))
+    			{
+    				kale++;
+    			}
+    			
+    		}
+        }
+			}
 	
     public void BeyazFilTehditKontrol(String board[][])
     {

@@ -14,7 +14,7 @@ public class Main {
 	   ArrayList<String> arr=new ArrayList<>();
 	   String [][] board = new String [8][8];
 		
-       File file = new File("C:\\Users\\demir\\OneDrive\\\\Desktop\\figures\\\\board1.txt");  
+       File file = new File("C:\\Users\\demir\\OneDrive\\\\Desktop\\figures\\\\board2.txt");  
        Scanner sc = new Scanner(file);
        
        //n
@@ -42,14 +42,16 @@ public class Main {
       Siyah siyahskor = new Siyah();
       siyahskor.AtTehditKontrol(board);
       siyahskor.FilTehditKontrol(board);
+      siyahskor.yazdir(board);
       siyahskor.skor();
-      siyahskor.yazdir();
+      
       System.out.println("---");
       Beyaz beyazskor = new Beyaz();
       beyazskor.BeyazAtTehditKontrol(board);
       beyazskor.BeyazFilTehditKontrol(board);
-      beyazskor.skor();
-      beyazskor.yazdir();
+        beyazskor.yazdir(board);
+        beyazskor.skor();
+    
       
 }
     

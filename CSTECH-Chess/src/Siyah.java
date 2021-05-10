@@ -1,30 +1,53 @@
 
-
 public class Siyah {
 	
 	int siyahpiyontehditsayisi=0,siyahfiltehditsayisi=0,siyahattehditsayisi=0,kaletehditsayisi=0;
 	int siyahvezirtehditsayisi=0,siyahsahtehditsayisi=0;
-	
+	 int piyon=0,at=0,kale=0,fil=0,vezir=0,sah;
 
 	public void skor()
 	{
-		double skor=(siyahpiyontehditsayisi*0.5)+(8-siyahpiyontehditsayisi);
-	 	skor+=(siyahfiltehditsayisi*1.5)+(2-siyahfiltehditsayisi)*3;
-	 	skor+=(siyahattehditsayisi*1.5)+(2-siyahattehditsayisi)*3;
-	 	skor+=kaletehditsayisi*2.5+(2-kaletehditsayisi)*5;
-	 	skor+=siyahvezirtehditsayisi>0 ? 4.5: 9;
-	 	skor+=siyahsahtehditsayisi>0 ? 50: 100;
+		double skor=(siyahpiyontehditsayisi*0.5)+(piyon-siyahpiyontehditsayisi);
+	 	skor+=(siyahfiltehditsayisi*1.5)+(fil-siyahfiltehditsayisi)*3;
+	 	skor+=(siyahattehditsayisi*1.5)+(at-siyahattehditsayisi)*3;
+	 	skor+=kaletehditsayisi*2.5+(kale-kaletehditsayisi)*5;
+	 	skor+=siyahvezirtehditsayisi*4.5+(vezir-siyahvezirtehditsayisi)*9;
+	 	skor+=siyahsahtehditsayisi*50+(sah-siyahsahtehditsayisi)*100;
 	 	
 	    System.out.println("Siyah: "+ skor);
 				
 	}
-	public void yazdir()
+	public void yazdir(String board[][])
 	{
-		System.out.println("tehdit edilen siyah piyon sayýsý "+ siyahpiyontehditsayisi);
-    	System.out.println("tehdit edilen siyah fil sayýsý "+ siyahfiltehditsayisi);
-    	System.out.println("tehdit edilen siyah vezir sayýsý "+ siyahvezirtehditsayisi);
-    	System.out.println("tehdit edilen siyah sah sayýsý "+ siyahsahtehditsayisi);
-    	System.out.println("tehdit edilen siyah at sayýsý "+ siyahattehditsayisi);
+		for(int i=0;i<8;i++) {
+    		for(int j=0;j<8;j++)
+    		{
+    			if(board[i][j].equalsIgnoreCase("fs"))
+    			{
+    				fil++;
+    			}
+    			if(board[i][j].equalsIgnoreCase("ps"))
+    			{
+    				piyon++;
+    			}
+    			if(board[i][j].equalsIgnoreCase("as"))
+    			{
+    				at++;
+    			}
+    			if(board[i][j].equalsIgnoreCase("vs"))
+    			{
+    				vezir++;
+    			}
+    			if(board[i][j].equalsIgnoreCase("ss"))
+    			{
+    				sah++;
+    			}
+    			if(board[i][j].equalsIgnoreCase("ks"))
+    			{
+    				kale++;
+    			}
+    			
+    		}}	
 	}
 	
     public void FilTehditKontrol(String board[][])
